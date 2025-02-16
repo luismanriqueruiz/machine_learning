@@ -87,6 +87,15 @@ if uploaded_file:
         har_data = load_har(uploaded_file)
         entries = extract_entries(har_data)
         df = process_entries(entries)
+
+        st.markdown("""
+        ### HTTP Status Codes Explanation
+        - **400 (Bad Request):** The server cannot process the request due to a client error (e.g., malformed request syntax, invalid request message framing).
+        - **0 (No Response / Network Error):** This usually means the request never reached the server or was blocked (e.g., due to a network issue, CORS policy, or firewall).
+        - **200 (OK):** The request was successful, and the server returned the requested data.
+        - **404 (Not Found):** The requested resource was not found on the server.
+        - **204 (No Content):** The request was successful, but the server has no content to return.
+        """)
         
         st.subheader("Request Data")
         st.dataframe(df.style.applymap(color_status, subset=["Status"]))
