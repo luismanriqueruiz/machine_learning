@@ -54,6 +54,11 @@ def plot_time_series(df):
     fig = px.line(df, x="Start Time", y="Time Taken (ms)", title="Response Time Over Time")
     st.plotly_chart(fig)
 
+def plot_url_method_distribution(df):
+    url_method_counts = df.groupby(["URL", "Method"]).size().reset_index(name="Count")
+    fig = px.bar(url_method_counts, x="URL", y="Count", color="Method", title="Request Count by URL and Method")
+    st.plotly_chart(fig)
+
 def check_timestamp_errors(df):
     df["Start Time"] = pd.to_datetime(df["Start Time"], errors='coerce')
     df = df.sort_values("Start Time")
@@ -108,6 +113,9 @@ if uploaded_file:
         
         st.subheader("Response Time Over Time")
         plot_time_series(df)
+
+        st.subheader("Request Count by URL and Method")
+        plot_url_method_distribution(df)
         
         st.subheader("Timestamp Errors")
         errors_df = check_timestamp_errors(df)
