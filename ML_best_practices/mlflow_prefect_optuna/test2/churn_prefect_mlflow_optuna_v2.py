@@ -71,7 +71,7 @@ def prepare_data(df: pd.DataFrame):
 
 
 # -------------------------------
-# Optuna objective with MLflow
+# Optuna objective with MLflow (Bayesian optimization)
 # -------------------------------
 def objective(trial, X_train, y_train, X_test, y_test):
     n_estimators = trial.suggest_int("n_estimators", 100, 500)
