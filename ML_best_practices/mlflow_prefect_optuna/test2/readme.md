@@ -1,3 +1,9 @@
+# Testing MLFlow + Prefect + Optuna
+
+These experiments are testing MLflow for experiment tracking, Prefect for creating machine learning pipelines, and Optuna for hyperparameter tuning.
+
+It consists in two parts:
+
 # Example 1
 ## 1. Installing dependencies
 
@@ -35,6 +41,7 @@ python churn_prefect_mlflow_optuna.py
 
 # Example 2
 
+This test will show how to implement the MLflow Model Registry with our churn model.
 
 ## Executing MLFlow
 ```bash
@@ -51,7 +58,9 @@ mlflow server \
 python churn_prefect_mlflow_optuna_v2.py
 ```
 
-# Check simple test
+# Sanity test
+
+Confirming MLflow works
 
 ```bash
 python simple_test.py
