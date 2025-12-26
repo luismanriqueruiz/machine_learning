@@ -1,0 +1,99 @@
+{
+  "personas": {
+    "bargain_hunter": {
+      "intent_probs": {
+        "ask_price": 0.5,
+        "ask_features": 0.0,
+        "compare": 0.3,
+        "complain": 0.2,
+        "buy": 0.0
+      },
+      "conversion_probability": 0.15
+    },
+    "curious": {
+      "intent_probs": {
+        "ask_price": 0.2,
+        "ask_features": 0.7,
+        "compare": 0.1,
+        "complain": 0.0,
+        "buy": 0.0
+      },
+      "conversion_probability": 0.05
+    },
+    "decisive": {
+      "intent_probs": {
+        "ask_price": 0.4,
+        "ask_features": 0.2,
+        "compare": 0.0,
+        "complain": 0.0,
+        "buy": 0.4
+      },
+      "conversion_probability": 0.5
+    }
+  },
+  "intents": [
+    "ask_price",
+    "ask_features",
+    "compare",
+    "complain",
+    "buy"
+  ],
+  "actions": [
+    "give_price",
+    "give_features",
+    "make_discount",
+    "upsell",
+    "apologize",
+    "close_offer"
+  ],
+  "transitions": {
+    "give_price": {
+      "ask_price": 0.0,
+      "ask_features": 0.4,
+      "compare": 0.3,
+      "complain": 0.0,
+      "buy": 0.3
+    },
+    "give_features": {
+      "ask_price": 0.4,
+      "ask_features": 0.0,
+      "compare": 0.2,
+      "complain": 0.0,
+      "buy": 0.4
+    },
+    "make_discount": {
+      "ask_price": 0.2,
+      "ask_features": 0.0,
+      "compare": 0.0,
+      "complain": 0.2,
+      "buy": 0.6
+    },
+    "upsell": {
+      "ask_price": 0.2,
+      "ask_features": 0.4,
+      "compare": 0.4,
+      "complain": 0.0,
+      "buy": 0.0
+    },
+    "apologize": {
+      "ask_price": 0.2,
+      "ask_features": 0.3,
+      "compare": 0.0,
+      "complain": 0.5,
+      "buy": 0.0
+    },
+    "close_offer": {
+      "ask_price": 0.0,
+      "ask_features": 0.0,
+      "compare": 0.0,
+      "complain": 0.0,
+      "buy": 1.0
+    }
+  },
+  "rewards": {
+    "conversion": 10.0,
+    "intent_alignment": 1.0,
+    "neutral": 0.0,
+    "bad_move": -1.0
+  }
+}
